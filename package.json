@@ -1,0 +1,28 @@
+{
+  "name": "@tw/cpgb-client",
+  "version": "1.0.0",
+  "description": "cpgb-client",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p -r main:watch renderer:watch electron:start",
+    "main:watch": "parcel watch src/main.ts --out-dir dist --out-file main --target electron",
+    "renderer:watch": "parcel src/index.html --out-dir dist/renderer",
+    "electron:start": "electron dist/main.js"
+  },
+  "author": "tw",
+  "license": "ISC",
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "app-root-path": "^3.0.0",
+    "electron": "^7.1.3",
+    "normalize.css": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.3"
+  }
+}
