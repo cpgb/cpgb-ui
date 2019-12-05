@@ -1,7 +1,7 @@
 {
-  "name": "@tw/cpgb-client",
+  "name": "@tw/cpgb-ui",
   "version": "1.0.0",
-  "description": "cpgb-client",
+  "description": "cpgb-ui",
   "main": "index.js",
   "scripts": {
     "start": "run-p -r main:watch renderer:watch electron:start",
