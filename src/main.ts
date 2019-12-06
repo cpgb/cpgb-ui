@@ -10,6 +10,7 @@ app.on('ready', async () => {
     height: 600,
     show: true,
     titleBarStyle: 'hidden',
+    frame: false,
     autoHideMenuBar: true
   });
 
