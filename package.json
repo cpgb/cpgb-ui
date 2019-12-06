@@ -7,7 +7,7 @@
     "start": "run-p -r main:watch renderer:watch electron:start",
     "main:watch": "parcel watch src/main.ts --out-dir dist --out-file main --target electron",
     "renderer:watch": "parcel src/index.html --out-dir dist/renderer",
-    "electron:start": "electron dist/main.js"
+    "electron:start": "electron ./dist/main.js"
   },
   "author": "tw",
   "license": "ISC",
