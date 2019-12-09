@@ -1,6 +1,7 @@
 {
+  "tslint.exclude": "**/node_modules/**",
   "cSpell.words": [
-    "cpgb"
+    "cpgb", "stylelint"
   ],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
