@@ -1,11 +1,11 @@
-const { format } = require('url');
+import { format } from 'url';
 
-const { BrowserWindow, app, globalShortcut } = require('electron');
-const isDev = require('electron-is-dev');
-const { resolve } = require('app-root-path');
+import appRootPath from 'app-root-path';
+import { app, BrowserWindow, globalShortcut } from 'electron';
+import electronIsDev from 'electron-is-dev';
 
 app.on('ready', async () => {
-  const mainWindow = new BrowserWindow({
+  const mainWindow: BrowserWindow = new BrowserWindow({
     width: 800,
     height: 600,
     show: true,
@@ -18,15 +18,15 @@ app.on('ready', async () => {
     mainWindow.webContents.openDevTools();
   });
 
-  const devPath = 'http://localhost:1234';
-  const prodPath = format({
-    pathname: resolve('dist/renderer/index.html'),
+  const devPath: string = 'http://localhost:1234';
+  const prodPath: string = format({
+    pathname: appRootPath('dist/renderer/index.html'),
     protocol: 'file:',
     slashes: true
   });
-  const url = isDev ? devPath : prodPath;
-  mainWindow.setMenu(null);
-  mainWindow.loadURL(url);
+  const url: string = electronIsDev ? devPath : prodPath;
+  mainWindow.setMenu(undefined);
+  await mainWindow.loadURL(url);
 });
 
 app.on('window-all-closed', app.quit);

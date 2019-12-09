@@ -7,7 +7,8 @@
     "start": "run-p -r main:watch renderer:watch electron:start",
     "main:watch": "parcel watch src/main.ts --out-dir dist --out-file main --target electron",
     "renderer:watch": "parcel src/index.html --out-dir dist/renderer",
-    "electron:start": "nodemon --watch src/main.ts --exec electron ."
+    "electron:start": "nodemon --watch src/main.ts --exec electron .",
+    "lint": "tslint --fix -c tslint.json 'src/**/*{.ts,.tsx}'"
   },
   "author": "tw",
   "license": "ISC",
@@ -17,18 +18,25 @@
   },
   "dependencies": {
     "electron-is-dev": "^1.1.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/react": "^16.9.15",
+    "@types/react-dom": "^16.9.4",
     "app-root-path": "^3.0.0",
     "electron": "^7.1.3",
     "nodemon": "^2.0.1",
-    "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "postcss-modules": "^1.4.1",
+    "tslint": "^6.0.0-beta0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "tslint-react": "^4.1.0",
     "typescript": "^3.7.3"
   }
 }
