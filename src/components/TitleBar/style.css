@@ -1,0 +1,7 @@
+.title_bar {
+  height: 20px;
+  padding: 4px 0 0;
+  font-size: 14px;
+  text-align: center;
+  -webkit-app-region: drag;
+}
