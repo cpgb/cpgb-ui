@@ -1,5 +1,4 @@
 {
-  "tslint.exclude": "**/node_modules/**",
   "cSpell.words": [
     "cpgb", "stylelint"
   ],

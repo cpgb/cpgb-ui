@@ -18,6 +18,7 @@
         "no-implicit-dependencies": false,
         "export-name": false,
         "no-null-keyword": false,
+        "no-any": false,
         "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"]
     },
     "rulesDirectory": []

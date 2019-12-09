@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styleCss from './style.css';
+import * as styleCss from './style.css';
 
 interface IProps {
   title: string
