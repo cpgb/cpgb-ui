@@ -1,12 +1,14 @@
 import * as React from 'react';
-import * as styleCss from './style.css';
+import styleCss from './style.css';
 
-interface IProps {
-  title: string
+interface Props {
+  title: string;
 }
 
-const TitleBar: React.FunctionComponent<IProps> = (props: IProps): React.ReactElement => {
+const TitleBar: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   return <header className={styleCss.title_bar}>{props.title}</header>;
-}
+};
 
 export default TitleBar;
