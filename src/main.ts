@@ -1,7 +1,7 @@
 import { format } from 'url';
 
 import { resolve } from 'app-root-path';
-import { app, BrowserWindow, globalShortcut } from 'electron';
+import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron';
 import electronIsDev from 'electron-is-dev';
 
 app.on(
@@ -11,9 +11,12 @@ app.on(
       width: 800,
       height: 600,
       show: true,
-      titleBarStyle: 'hidden',
       frame: false,
-      autoHideMenuBar: true
+      autoHideMenuBar: true,
+      webPreferences: {
+        nodeIntegration: true,
+        webSecurity: false
+      }
     });
 
     globalShortcut.register('CommandOrControl+Shift+I', (): void => {
@@ -26,7 +29,13 @@ app.on(
       protocol: 'file:',
       slashes: true
     });
+
     const url: string = electronIsDev ? devPath : prodPath;
+
+    ipcMain.on('close', () => {
+      mainWindow.close();
+    });
+
     mainWindow.setMenu(null);
     await mainWindow.loadURL(url);
   }

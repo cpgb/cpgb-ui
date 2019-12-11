@@ -1,7 +1,23 @@
 .title_bar {
-  height: 20px;
-  padding: 4px 0 0;
   font-size: 14px;
+  line-height: 40px;
   text-align: center;
   -webkit-app-region: drag;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  float: right;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: red;
 }
