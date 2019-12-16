@@ -8,8 +8,8 @@ app.on(
   'ready',
   async (): Promise<void> => {
     const mainWindow: BrowserWindow = new BrowserWindow({
-      width: 800,
-      height: 600,
+      width: 735,
+      height: 480,
       show: true,
       frame: false,
       autoHideMenuBar: true,

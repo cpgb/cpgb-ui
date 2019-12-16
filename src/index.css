@@ -1,0 +1,11 @@
+body {
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Poppins, Roboto, Noto, sans-serif;
+  font-weight: 700;
+  border: 0;
+  outline: 0;
+}

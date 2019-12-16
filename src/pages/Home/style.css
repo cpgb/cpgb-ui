@@ -1,0 +1,14 @@
+.logo {
+  display: block;
+  width: 150px;
+  margin: 30px auto;
+}
+
+.setting-btn {
+  display: flex;
+  align-items: center;
+}
+
+.setting-btn svg {
+  margin-right: 10px;
+}
