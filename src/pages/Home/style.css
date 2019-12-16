@@ -1,7 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  padding: 65px 0;
+}
+
 .logo {
   display: block;
   width: 150px;
-  margin: 30px auto;
+  margin-bottom: 40px;
 }
 
 .setting-btn {

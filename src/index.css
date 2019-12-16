@@ -1,4 +1,7 @@
-body {
+html,
+body,
+:global(#root) {
+  height: 100%;
   user-select: none;
 }
 
@@ -8,4 +11,10 @@ body {
   font-weight: 700;
   border: 0;
   outline: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styleCss from './style.css';
 import Footer from '../../components/Footer';
+import Button from '../../components/Button';
 
 const SettingClose: React.FunctionComponent = () => (
   <svg viewBox="0 0 268.765 268.765" width="1.5em" height="1.5em">
@@ -21,12 +22,16 @@ const SettingClose: React.FunctionComponent = () => (
 
 export default function Home(): React.ReactElement {
   return (
-    <div>
-      <img
-        src={require('../../asserts/logo.png') as string}
-        alt="logo"
-        className={styleCss.logo}
-      />
+    <React.Fragment>
+      <div className={styleCss.content}>
+        <img
+          src={require('../../asserts/logo.png') as string}
+          alt="logo"
+          className={styleCss.logo}
+        />
+
+        <Button>导入已有项目</Button>
+      </div>
 
       <Footer>
         <div className={styleCss.settingBtn}>
@@ -34,6 +39,6 @@ export default function Home(): React.ReactElement {
           setting
         </div>
       </Footer>
-    </div>
+    </React.Fragment>
   );
 }
