@@ -1,0 +1,15 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  margin: 4px;
+  font-family: 'Poppins', 'Roboto', 'Noto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: #000;
+  border-radius: 4px;
+}
