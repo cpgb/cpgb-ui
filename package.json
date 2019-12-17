@@ -9,8 +9,8 @@
     "renderer:watch": "parcel src/index.html --out-dir dist/renderer",
     "electron:start": "nodemon --watch dist/main.ts --exec electron .",
     "lint": "npm-run-all -p eslint stylelint",
-    "eslint": "eslint --fix 'src/**/*{.ts,.tsx}'",
-    "stylelint": "stylelint --fix 'src/**/*.css'"
+    "eslint": "eslint --fix src/**/*{.ts,.tsx}",
+    "stylelint": "stylelint --fix src/**/*.css"
   },
   "author": "tw",
   "license": "ISC",
