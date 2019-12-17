@@ -29,8 +29,10 @@ export default function Home(): React.ReactElement {
           alt="logo"
           className={styleCss.logo}
         />
-
-        <Button>导入已有项目</Button>
+        <div className={styleCss.btnGroup}>
+          <Button width={140}>导入已有项目</Button>
+          <Button width={140}>创建新项目</Button>
+        </div>
       </div>
 
       <Footer>

@@ -1,0 +1,45 @@
+.record-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 20px;
+  -webkit-app-region: drag;
+}
+
+.record-wrapper svg,
+.start-btn {
+  cursor: pointer;
+}
+
+.start-btn {
+  width: 46px;
+  height: 46px;
+  margin: 0 10px;
+  border: 12px rgb(235, 77, 61) solid;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.start-btn::after {
+  width: 20px;
+  height: 20px;
+  content: '';
+  transition: all 0.3s;
+  transform: scale(0);
+}
+
+.start-btn.recording {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 3px;
+}
+
+.start-btn.recording::after {
+  display: block;
+  content: '';
+  background-color: rgb(235, 77, 61);
+  border-radius: 6px;
+  transform: scale(1);
+}

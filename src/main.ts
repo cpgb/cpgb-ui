@@ -2,6 +2,8 @@ import { format } from 'url';
 
 import { resolve } from 'app-root-path';
 import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron';
+import * as record from './record';
+
 import electronIsDev from 'electron-is-dev';
 
 app.on(
@@ -19,10 +21,6 @@ app.on(
       }
     });
 
-    globalShortcut.register('CommandOrControl+Shift+I', (): void => {
-      mainWindow.webContents.openDevTools();
-    });
-
     const devPath = 'http://localhost:1234';
     const prodPath: string = format({
       pathname: resolve('dist/renderer/index.html'),
@@ -37,6 +35,14 @@ app.on(
     });
 
     mainWindow.setMenu(null);
+    record.createWindow();
+    record.showRecordWindow();
+
+    globalShortcut.register('CommandOrControl+Shift+I', (): void => {
+      mainWindow.webContents.openDevTools();
+      record.showDevTool();
+    });
+
     await mainWindow.loadURL(url);
   }
 );

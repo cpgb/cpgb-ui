@@ -15,8 +15,15 @@
 .setting-btn {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .setting-btn svg {
   margin-right: 10px;
+}
+
+.btn-group button {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
