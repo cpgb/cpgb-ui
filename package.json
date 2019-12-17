@@ -7,7 +7,7 @@
     "start": "npm-run-all -p lint main:watch renderer:watch electron:start",
     "main:watch": "parcel watch src/main.ts --out-dir dist --out-file main --target electron",
     "renderer:watch": "parcel src/index.html --out-dir dist/renderer",
-    "electron:start": "nodemon --watch dist/main.ts --exec electron .",
+    "electron:start": "nodemon --watch src/main.ts --exec electron .",
     "lint": "npm-run-all -p eslint stylelint",
     "eslint": "eslint --fix src/**/*{.ts,.tsx}",
     "stylelint": "stylelint --fix src/**/*.css"

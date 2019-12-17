@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styleCss from './style.css';
 
-const { ipcRenderer } = window.require('electron');
+// const { ipcRenderer } = window.require('electron');
 
 interface Props {
   title: string;
@@ -31,7 +31,7 @@ const TitleBar: React.FunctionComponent<Props> = (
         <span
           className={styleCss.btn}
           onClick={(): void => {
-            ipcRenderer.send('close');
+            // ipcRenderer.send('close');
           }}
         >
           <IconClose />
