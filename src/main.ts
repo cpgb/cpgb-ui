@@ -16,7 +16,6 @@ app.on(
       frame: false,
       autoHideMenuBar: true,
       resizable: false,
-      transparent: true,
       webPreferences: {
         nodeIntegration: true,
         webSecurity: false

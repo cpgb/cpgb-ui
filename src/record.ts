@@ -13,7 +13,6 @@ export async function createWindow(): Promise<void> {
     frame: false,
     autoHideMenuBar: true,
     resizable: false,
-    transparent: true,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false
