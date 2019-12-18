@@ -37,7 +37,10 @@ app.on(
 
     mainWindow.setMenu(null);
     record.createWindow();
-    record.showRecordWindow();
+
+    ipcMain.on('toggleToolWindow', (): void => {
+      record.toggleRecordWindow();
+    });
 
     globalShortcut.register('CommandOrControl+Shift+I', (): void => {
       mainWindow.webContents.openDevTools();

@@ -25,3 +25,16 @@
 .folder:hover {
   background-color: #333;
 }
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+}
+
+.tool-window-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border: 8px solid rgb(235, 77, 61);
+  border-radius: 50%;
+}

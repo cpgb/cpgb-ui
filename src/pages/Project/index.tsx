@@ -2,7 +2,7 @@ import * as React from 'react';
 import styleCss from './style.css';
 import Code from '../../components/Code';
 
-const { shell } = window.require('electron');
+const { shell, ipcRenderer } = window.require('electron');
 
 export default function Project(): React.ReactElement {
   return (
@@ -26,8 +26,22 @@ export default function Project(): React.ReactElement {
       >
         /Users/taowei/project/electron/cpgb-ui/project/electron/cpgb-ui
       </Code>
+
+      <footer className={styleCss.footer}>
+        <ToolWindowIcon
+          onClick={(): void => {
+            ipcRenderer.send('toggleToolWindow');
+          }}
+        />
+      </footer>
     </div>
   );
+}
+
+function ToolWindowIcon(
+  props: React.DOMAttributes<HTMLDivElement>
+): React.ReactElement {
+  return <div className={styleCss.toolWindowIcon} {...props} />;
 }
 
 function ProjectIcon(): React.ReactElement {

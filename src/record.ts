@@ -9,7 +9,7 @@ export async function createWindow(): Promise<void> {
   recordWindow = new BrowserWindow({
     width: 465,
     height: 65,
-    show: true,
+    show: false,
     frame: false,
     autoHideMenuBar: true,
     resizable: false,
@@ -35,12 +35,24 @@ export async function createWindow(): Promise<void> {
   recordWindow.setMenu(null);
   await recordWindow.loadURL(url);
 }
+
+let show = false;
 export function showRecordWindow(): void {
+  show = true;
   recordWindow.show();
 }
 
 export function hideRecordWindow(): void {
+  show = false;
   recordWindow.hide();
+}
+
+export function toggleRecordWindow(): void {
+  if (!show) {
+    showRecordWindow();
+  } else {
+    hideRecordWindow();
+  }
 }
 
 export function showDevTool(): void {
