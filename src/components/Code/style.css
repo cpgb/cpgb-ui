@@ -1,0 +1,33 @@
+.code-wrapper {
+  margin-top: 15px;
+}
+
+.code-wrapper > header {
+  padding-left: 2px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #333;
+}
+
+.code-wrapper > div {
+  position: relative;
+}
+
+.code {
+  padding: 7px 10px;
+  overflow: scroll;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #666;
+  white-space: nowrap;
+  user-select: text;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
