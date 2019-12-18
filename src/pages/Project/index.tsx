@@ -1,32 +1,42 @@
 import * as React from 'react';
 import styleCss from './style.css';
 import Code from '../../components/Code';
+import Button from '../../components/Button';
 
 const { shell, ipcRenderer } = window.require('electron');
 
 export default function Project(): React.ReactElement {
   return (
-    <div className={styleCss.project_wrapper}>
-      <header className={styleCss.title}>
-        <ProjectIcon />
-        一键刷图
-      </header>
-      <Code
-        title={'项目路径'}
-        right={
-          <button
-            onClick={(): void => {
-              shell.showItemInFolder('/Users/taowei/project/electron/cpgb-ui');
-            }}
-            className={styleCss.folder}
-          >
-            访达
-          </button>
-        }
-      >
-        /Users/taowei/project/electron/cpgb-ui/project/electron/cpgb-ui
-      </Code>
+    <React.Fragment>
+      <div className={styleCss.project_wrapper}>
+        <header className={styleCss.title}>
+          <ProjectIcon />
+          一键刷图
+        </header>
+        <Code
+          title={'项目路径'}
+          right={
+            <button
+              onClick={(): void => {
+                shell.showItemInFolder(
+                  '/Users/taowei/project/electron/cpgb-ui'
+                );
+              }}
+              className={styleCss.folder}
+            >
+              访达
+            </button>
+          }
+        >
+          /Users/taowei/project/electron/cpgb-ui/project/electron/cpgb-ui
+        </Code>
+        <div className={styleCss.buttonGroup}>
+          <Button>打包</Button>
+          <Button>运行</Button>
+        </div>
+      </div>
 
+      <div className={styleCss.logWrapper}>这是输出的日志</div>
       <footer className={styleCss.footer}>
         <ToolWindowIcon
           onClick={(): void => {
@@ -34,7 +44,7 @@ export default function Project(): React.ReactElement {
           }}
         />
       </footer>
-    </div>
+    </React.Fragment>
   );
 }
 
