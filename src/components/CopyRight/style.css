@@ -5,4 +5,5 @@
 .copy-right {
   display: flex;
   align-items: center;
+  font-family: Poppins, Roboto, Noto, sans-serif;
 }

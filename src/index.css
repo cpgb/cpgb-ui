@@ -3,13 +3,11 @@ body,
 :global(#root) {
   height: 100%;
   user-select: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 * {
   box-sizing: border-box;
-  font-family: Poppins, Roboto, Noto, sans-serif;
-  font-weight: 700;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   border: 0;
   outline: 0;
 }

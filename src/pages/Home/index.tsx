@@ -2,6 +2,7 @@ import * as React from 'react';
 import styleCss from './style.css';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
+import * as ReactRouter from 'react-router-dom';
 
 const SettingClose: React.FunctionComponent = () => (
   <svg viewBox="0 0 268.765 268.765" width="1.5em" height="1.5em">
@@ -20,7 +21,9 @@ const SettingClose: React.FunctionComponent = () => (
   </svg>
 );
 
-export default function Home(): React.ReactElement {
+export default function Home(
+  props: ReactRouter.RouteComponentProps
+): React.ReactElement {
   return (
     <React.Fragment>
       <div className={styleCss.content}>
@@ -30,7 +33,15 @@ export default function Home(): React.ReactElement {
           className={styleCss.logo}
         />
         <div className={styleCss.btnGroup}>
-          <Button width={140}>导入已有项目</Button>
+          <Button
+            onClick={(): void => {
+              console.log(props);
+              props.history.push('/project');
+            }}
+            width={140}
+          >
+            导入已有项目
+          </Button>
           <Button width={140}>创建新项目</Button>
         </div>
       </div>
