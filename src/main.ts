@@ -3,6 +3,7 @@ import { format } from 'url';
 import { resolve } from 'app-root-path';
 import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron';
 import * as record from './record';
+import * as capturer from './capturer';
 
 import electronIsDev from 'electron-is-dev';
 
@@ -37,6 +38,7 @@ app.on(
 
     mainWindow.setMenu(null);
     record.createWindow();
+    capturer.createWindow();
 
     ipcMain.on('toggleToolWindow', (): void => {
       record.toggleRecordWindow();
@@ -45,6 +47,7 @@ app.on(
     globalShortcut.register('CommandOrControl+Shift+I', (): void => {
       mainWindow.webContents.openDevTools();
       record.showDevTool();
+      capturer.showDevTool();
     });
 
     await mainWindow.loadURL(url);

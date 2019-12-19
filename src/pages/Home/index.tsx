@@ -35,7 +35,6 @@ export default function Home(
         <div className={styleCss.btnGroup}>
           <Button
             onClick={(): void => {
-              console.log(props);
               props.history.push('/project');
             }}
             width={140}

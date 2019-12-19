@@ -31,11 +31,17 @@ export default function Project(): React.ReactElement {
           /Users/taowei/project/electron/cpgb-ui/project/electron/cpgb-ui
         </Code>
         <div className={styleCss.buttonGroup}>
-          <Button>打包</Button>
+          <Button
+            onClick={(): void => {
+              console.log('打包');
+            }}
+          >
+            打包
+          </Button>
           <Button>运行</Button>
         </div>
       </div>
-
+      <video></video>
       <div className={styleCss.logWrapper}>这是输出的日志</div>
       <footer className={styleCss.footer}>
         <ToolWindowIcon

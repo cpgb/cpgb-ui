@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain } from 'electron';
+import { BrowserWindow } from 'electron';
 import { format } from 'url';
 import { resolve } from 'app-root-path';
 import electronIsDev from 'electron-is-dev';
@@ -21,16 +21,12 @@ export async function createWindow(): Promise<void> {
 
   const devPath = 'http://localhost:1234/record';
   const prodPath: string = format({
-    pathname: resolve('dist/renderer/index.html'),
+    pathname: resolve('dist/renderer/index.html/record'),
     protocol: 'file:',
     slashes: true
   });
 
   const url: string = electronIsDev ? devPath : prodPath;
-
-  ipcMain.on('close', () => {
-    recordWindow.close();
-  });
 
   recordWindow.setMenu(null);
   await recordWindow.loadURL(url);
