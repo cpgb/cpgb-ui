@@ -12,7 +12,9 @@ export default function WindowItem(
   return (
     <div className={StyleCss.windowItem}>
       <img src={props.thumbnailSrc} alt={props.name} />
-      <div className={StyleCss.title}>{props.name}</div>
+      <div className={StyleCss.title}>
+        <img src={props.appIconSrc} /> {props.name.substr(0, 20)}
+      </div>
     </div>
   );
 }

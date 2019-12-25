@@ -25,7 +25,7 @@ const TitleBar: React.FunctionComponent<TitleBarProps> = (
   props: TitleBarProps
 ): React.ReactElement => {
   return (
-    <header className={styleCss.title_bar}>
+    <header className={styleCss.titleBar}>
       {props.title}
       <div className={styleCss.right}>
         <span

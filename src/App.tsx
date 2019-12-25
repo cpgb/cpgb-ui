@@ -10,11 +10,13 @@ const App: React.FunctionComponent = (): React.ReactElement => {
   return (
     <div className={styleCss.appWrapper}>
       <TitleBar title="疯狂游戏盒子" />
-      <Switch>
-        <Route path="/project" component={Project} />
-        <Route path="/select-window" component={SelectWindow} />
-        <Route path="/" component={Home} />
-      </Switch>
+      <div className={styleCss.content}>
+        <Switch>
+          <Route path="/project" component={Project} />
+          <Route path="/select-window" component={SelectWindow} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </div>
     </div>
   );
 };

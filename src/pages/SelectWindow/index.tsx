@@ -12,9 +12,10 @@ export default function SelectWindow(): React.ReactElement {
       .getSources({
         types: ['window'],
         thumbnailSize: {
-          width: 300,
-          height: 300
-        }
+          width: 460,
+          height: 460
+        },
+        fetchWindowIcons: true
       })
       .then((sources: Electron.DesktopCapturerSource[]): void => {
         setWindows(
@@ -26,7 +27,7 @@ export default function SelectWindow(): React.ReactElement {
                 id: source.id,
                 displayId: source.display_id,
                 thumbnailSrc: source.thumbnail.toDataURL(),
-                appIconSrc: source.appIcon
+                appIconSrc: source.appIcon.toDataURL()
               };
             })
         );

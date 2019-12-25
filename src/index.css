@@ -17,3 +17,7 @@ body,
   flex-direction: column;
   height: 100%;
 }
+
+.app-wrapper .content {
+  overflow: scroll;
+}

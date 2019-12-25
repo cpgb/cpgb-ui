@@ -52,8 +52,8 @@ export default function Project(): React.ReactElement {
         <CurrentWindow
           onClick={(): void => {
             ipcRenderer.invoke('createWindow', {
-              width: 800,
-              height: 440,
+              width: 900,
+              height: 400,
               center: true,
               path: '/select-window'
             });

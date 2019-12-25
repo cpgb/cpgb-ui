@@ -6,16 +6,27 @@
 
 .window-item {
   width: 33.33%;
-  padding: 2.5px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .window-item > img {
   width: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.55) 0 10px 28px;
 }
 
 .window-item .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
   font-size: 12px;
-  font-weight: 100;
-  text-align: center;
+  font-weight: 400;
+}
+
+.window-item .title > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
 }
