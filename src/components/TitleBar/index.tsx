@@ -3,7 +3,7 @@ import styleCss from './style.css';
 
 // const { ipcRenderer } = window.require('electron');
 
-interface Props {
+export interface TitleBarProps {
   title: string;
 }
 
@@ -21,8 +21,8 @@ const IconClose: React.FunctionComponent = () => (
   </svg>
 );
 
-const TitleBar: React.FunctionComponent<Props> = (
-  props: Props
+const TitleBar: React.FunctionComponent<TitleBarProps> = (
+  props: TitleBarProps
 ): React.ReactElement => {
   return (
     <header className={styleCss.title_bar}>

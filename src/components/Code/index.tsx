@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styleCss from './style.css';
 
-interface Props {
+export interface CodeProps {
   title?: string;
   right?: React.ReactElement;
 }
 
 export default function Code(
-  props: React.PropsWithChildren<Props>
+  props: React.PropsWithChildren<CodeProps>
 ): React.ReactElement {
   return (
     <div className={styleCss.codeWrapper}>

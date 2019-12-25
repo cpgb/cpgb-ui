@@ -1,46 +1,24 @@
-import { format } from 'url';
-
-import { resolve } from 'app-root-path';
+import { createWindow } from './services/windows';
 import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron';
 import * as record from './record';
 import * as capturer from './capturer';
 
-import electronIsDev from 'electron-is-dev';
-
 app.on(
   'ready',
   async (): Promise<void> => {
-    const mainWindow: BrowserWindow = new BrowserWindow({
+    const mainWindow: BrowserWindow = createWindow({
       width: 360,
-      height: 600,
-      show: true,
-      frame: false,
-      autoHideMenuBar: true,
-      resizable: false,
-      webPreferences: {
-        nodeIntegration: true,
-        webSecurity: false
-      }
+      height: 600
     });
-
-    const devPath = 'http://localhost:1234';
-    const prodPath: string = format({
-      pathname: resolve('dist/renderer/index.html'),
-      protocol: 'file:',
-      slashes: true
-    });
-
-    const url: string = electronIsDev ? devPath : prodPath;
 
     ipcMain.on('close', () => {
       mainWindow.close();
     });
 
-    mainWindow.setMenu(null);
-    record.createWindow();
-    capturer.createWindow();
+    record.newWindow();
+    capturer.newWindow();
 
-    ipcMain.on('toggleToolWindow', (): void => {
+    ipcMain.handle('toggleToolWindow', (): void => {
       record.toggleRecordWindow();
     });
 
@@ -49,8 +27,6 @@ app.on(
       record.showDevTool();
       capturer.showDevTool();
     });
-
-    await mainWindow.loadURL(url);
   }
 );
 

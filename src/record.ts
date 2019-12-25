@@ -1,35 +1,15 @@
 import { BrowserWindow } from 'electron';
-import { format } from 'url';
-import { resolve } from 'app-root-path';
-import electronIsDev from 'electron-is-dev';
+import { createWindow } from './services/windows';
 
 let recordWindow: BrowserWindow = null;
 
-export async function createWindow(): Promise<void> {
-  recordWindow = new BrowserWindow({
+export async function newWindow(): Promise<void> {
+  recordWindow = createWindow({
     width: 465,
     height: 65,
     show: false,
-    frame: false,
-    autoHideMenuBar: true,
-    resizable: false,
-    webPreferences: {
-      nodeIntegration: true,
-      webSecurity: false
-    }
+    path: '/record'
   });
-
-  const devPath = 'http://localhost:1234/record';
-  const prodPath: string = format({
-    pathname: resolve('dist/renderer/index.html/record'),
-    protocol: 'file:',
-    slashes: true
-  });
-
-  const url: string = electronIsDev ? devPath : prodPath;
-
-  recordWindow.setMenu(null);
-  await recordWindow.loadURL(url);
 }
 
 let show = false;

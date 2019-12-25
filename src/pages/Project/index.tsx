@@ -2,13 +2,13 @@ import * as React from 'react';
 import styleCss from './style.css';
 import Code from '../../components/Code';
 import Button from '../../components/Button';
-
+import { WindowIcon } from '../../components/Icons';
 const { shell, ipcRenderer } = window.require('electron');
 
 export default function Project(): React.ReactElement {
   return (
     <React.Fragment>
-      <div className={styleCss.project_wrapper}>
+      <div className={styleCss.projectWrapper}>
         <header className={styleCss.title}>
           <ProjectIcon />
           一键刷图
@@ -46,7 +46,17 @@ export default function Project(): React.ReactElement {
       <footer className={styleCss.footer}>
         <ToolWindowIcon
           onClick={(): void => {
-            ipcRenderer.send('toggleToolWindow');
+            ipcRenderer.invoke('toggleToolWindow');
+          }}
+        />
+        <CurrentWindow
+          onClick={(): void => {
+            ipcRenderer.invoke('createWindow', {
+              width: 800,
+              height: 440,
+              center: true,
+              path: '/select-window'
+            });
           }}
         />
       </footer>
@@ -58,6 +68,17 @@ function ToolWindowIcon(
   props: React.DOMAttributes<HTMLDivElement>
 ): React.ReactElement {
   return <div className={styleCss.toolWindowIcon} {...props} />;
+}
+
+function CurrentWindow(
+  props: React.DOMAttributes<HTMLDivElement>
+): React.ReactElement {
+  return (
+    <div className={styleCss.currentWindow} {...props}>
+      <WindowIcon height={20} width={20} />
+      <span>选择游戏窗口</span>
+    </div>
+  );
 }
 
 function ProjectIcon(): React.ReactElement {

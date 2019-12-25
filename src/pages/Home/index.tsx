@@ -2,6 +2,7 @@ import * as React from 'react';
 import styleCss from './style.css';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
+
 import * as ReactRouter from 'react-router-dom';
 
 const SettingClose: React.FunctionComponent = () => (
