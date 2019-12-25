@@ -1,0 +1,21 @@
+.select-window {
+  display: flex;
+  flex-flow: wrap;
+  padding: 10px 5px;
+}
+
+.window-item {
+  width: 33.33%;
+  padding: 2.5px;
+  cursor: pointer;
+}
+
+.window-item > img {
+  width: 100%;
+}
+
+.window-item .title {
+  font-size: 12px;
+  font-weight: 100;
+  text-align: center;
+}
