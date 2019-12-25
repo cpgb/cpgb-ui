@@ -35,7 +35,6 @@
     ]
   },
   "dependencies": {
-    "@types/electron": "^1.6.10",
     "electron-is-dev": "^1.1.0",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
