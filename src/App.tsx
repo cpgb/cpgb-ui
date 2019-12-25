@@ -5,11 +5,18 @@ import Project from './pages/Project';
 import SelectWindow from './pages/SelectWindow';
 import styleCss from './index.css';
 import { Switch, Route } from 'react-router-dom';
+const { remote } = window.require('electron');
 
 const App: React.FunctionComponent = (): React.ReactElement => {
   return (
     <div className={styleCss.appWrapper}>
-      <TitleBar title="疯狂游戏盒子" />
+      <TitleBar
+        title="疯狂游戏盒子"
+        onClose={(): void => {
+          const window = remote.getCurrentWindow();
+          window.close();
+        }}
+      />
       <div className={styleCss.content}>
         <Switch>
           <Route path="/project" component={Project} />

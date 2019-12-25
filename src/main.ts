@@ -11,10 +11,6 @@ app.on(
       height: 600
     });
 
-    ipcMain.on('close', () => {
-      mainWindow.close();
-    });
-
     record.newWindow();
     capturer.newWindow();
 

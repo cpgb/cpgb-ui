@@ -1,10 +1,9 @@
 import * as React from 'react';
 import styleCss from './style.css';
 
-// const { ipcRenderer } = window.require('electron');
-
 export interface TitleBarProps {
   title: string;
+  onClose: () => void;
 }
 
 const IconClose: React.FunctionComponent = () => (
@@ -31,7 +30,7 @@ const TitleBar: React.FunctionComponent<TitleBarProps> = (
         <span
           className={styleCss.btn}
           onClick={(): void => {
-            // ipcRenderer.send('close');
+            props.onClose();
           }}
         >
           <IconClose />

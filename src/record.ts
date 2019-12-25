@@ -8,6 +8,7 @@ export async function newWindow(): Promise<void> {
     width: 465,
     height: 65,
     show: false,
+    skipTaskbar: true,
     path: '/record'
   });
 }

@@ -9,6 +9,7 @@ export async function newWindow(): Promise<void> {
     height: 900,
     show: false,
     alwaysOnTop: true,
+    skipTaskbar: true,
     path: '/capturer'
   });
 
