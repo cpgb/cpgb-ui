@@ -24,7 +24,3 @@ export async function newWindow(): Promise<void> {
     show = !show;
   });
 }
-
-export function showDevTool(): void {
-  capturerWindow.webContents.openDevTools();
-}

@@ -16,6 +16,10 @@ body,
   outline: 0;
 }
 
+img {
+  -webkit-user-drag: none;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;

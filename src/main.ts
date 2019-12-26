@@ -6,7 +6,7 @@ import * as capturer from './capturer';
 app.on(
   'ready',
   async (): Promise<void> => {
-    const mainWindow: BrowserWindow = createWindow({
+    createWindow({
       width: 360,
       height: 600
     });
@@ -19,9 +19,10 @@ app.on(
     });
 
     globalShortcut.register('CommandOrControl+Shift+I', (): void => {
-      mainWindow.webContents.openDevTools();
-      record.showDevTool();
-      capturer.showDevTool();
+      const focusedWindow = BrowserWindow.getFocusedWindow();
+      if (focusedWindow) {
+        focusedWindow.webContents.openDevTools();
+      }
     });
   }
 );

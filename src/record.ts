@@ -31,7 +31,3 @@ export function toggleRecordWindow(): void {
     hideRecordWindow();
   }
 }
-
-export function showDevTool(): void {
-  recordWindow.webContents.openDevTools();
-}

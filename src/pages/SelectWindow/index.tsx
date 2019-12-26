@@ -7,6 +7,8 @@ const { desktopCapturer } = window.require('electron');
 
 export default function SelectWindow(): React.ReactElement {
   const [windows, setWindows] = React.useState([]);
+  const [checkedId, setCheckedId] = React.useState({});
+
   React.useEffect((): void => {
     desktopCapturer
       .getSources({
@@ -41,6 +43,10 @@ export default function SelectWindow(): React.ReactElement {
           thumbnailSrc={window.thumbnailSrc}
           appIconSrc={window.appIconSrc}
           name={window.name}
+          onClick={(): void => {
+            setCheckedId(window.id);
+          }}
+          checked={checkedId === window.id}
         />
       ))}
     </div>

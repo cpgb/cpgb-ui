@@ -5,12 +5,11 @@
 }
 
 .window-item {
-  width: 33.33%;
-  padding: 10px;
-  cursor: pointer;
+  width: 25%;
+  padding: 5px;
 }
 
-.window-item > img {
+.window-item img {
   width: 100%;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.55) 0 10px 28px;
@@ -29,4 +28,27 @@
   width: 16px;
   height: 16px;
   margin-right: 6px;
+}
+
+.window-item .window-item-inner {
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.window-item.checked .window-item-inner {
+  border-color: rgb(235, 50, 35);
+  border-radius: 5px;
+}
+
+.window-item .arrow {
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  display: none;
+}
+
+.window-item.checked .arrow {
+  display: block;
 }
