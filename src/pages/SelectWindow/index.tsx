@@ -2,6 +2,7 @@ import * as React from 'react';
 import WindowItem from './WindowItem';
 import StyleCss from './style.css';
 import Electron from 'electron';
+import Toast from '../../components/Toast';
 
 const { desktopCapturer } = window.require('electron');
 
@@ -44,7 +45,10 @@ export default function SelectWindow(): React.ReactElement {
           appIconSrc={window.appIconSrc}
           name={window.name}
           onClick={(): void => {
-            setCheckedId(window.id);
+            if (checkedId !== window.id) {
+              setCheckedId(window.id);
+              Toast.loading('切换窗口成功');
+            }
           }}
           checked={checkedId === window.id}
         />

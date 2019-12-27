@@ -1,6 +1,6 @@
 import * as React from 'react';
 import StyleCss from './style.css';
-import Arrow from '../../components/Icons/Arrow';
+import { Checkmark } from '../../components/Icons';
 
 export interface WindowItemProps {
   thumbnailSrc: string;
@@ -25,7 +25,7 @@ export default function WindowItem(
           props.onClick();
         }}
       >
-        <Arrow className={StyleCss.arrow} />
+        <Checkmark className={StyleCss.arrow} fill="#C3463A" />
         <img src={props.thumbnailSrc} alt={props.name} />
         <div className={StyleCss.title}>
           <img src={props.appIconSrc} /> {props.name.substr(0, 20)}

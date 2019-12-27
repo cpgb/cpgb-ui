@@ -1,6 +1,6 @@
 {
   "cSpell.words": [
-    "cpgb", "stylelint"
+    "cpgb", "stylelint", "Checkmark"
   ],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
