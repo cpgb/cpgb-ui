@@ -6,7 +6,7 @@ import * as capturer from './capturer';
 app.on(
   'ready',
   async (): Promise<void> => {
-    createWindow({
+    const mainWindow = createWindow({
       width: 360,
       height: 600
     });
@@ -14,15 +14,22 @@ app.on(
     record.newWindow();
     capturer.newWindow();
 
+    // 显示工具拦
     ipcMain.handle('toggleToolWindow', (): void => {
       record.toggleRecordWindow();
     });
 
+    // 打开控制台
     globalShortcut.register('CommandOrControl+Shift+I', (): void => {
       const focusedWindow = BrowserWindow.getFocusedWindow();
       if (focusedWindow) {
         focusedWindow.webContents.openDevTools();
       }
+    });
+
+    // 发送消息给主窗口
+    ipcMain.handle('sendToMainWindow', (_, channel, ...args) => {
+      mainWindow.webContents.send(channel, ...args);
     });
   }
 );

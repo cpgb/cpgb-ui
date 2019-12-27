@@ -25,7 +25,7 @@ class Notification extends React.PureComponent<{}, NotificationState> {
     };
   }
 
-  add(message: Message, duration = 3000): string {
+  add(message: Message, duration = 1500): string {
     const uuid: string = getUuid();
     message.id = uuid;
     this.setState({ messages: [...this.state.messages, message] });

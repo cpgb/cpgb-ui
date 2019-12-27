@@ -70,8 +70,15 @@
   cursor: pointer;
 }
 
+.current-window > img {
+  width: 20px;
+  height: 20px;
+}
+
 .current-window > span {
   position: relative;
   top: 2px;
+  max-width: 250px;
   padding-left: 5px;
+  overflow-x: hidden;
 }

@@ -4,10 +4,18 @@ import StyleCss from './style.css';
 import Electron from 'electron';
 import Toast from '../../components/Toast';
 
-const { desktopCapturer } = window.require('electron');
+const { desktopCapturer, ipcRenderer } = window.require('electron');
+
+export interface SelectWindowState {
+  thumbnailSrc: string;
+  appIconSrc: string;
+  name: string;
+  displayId: string;
+  id: string;
+}
 
 export default function SelectWindow(): React.ReactElement {
-  const [windows, setWindows] = React.useState([]);
+  const [windows, setWindows] = React.useState<SelectWindowState[]>([]);
   const [checkedId, setCheckedId] = React.useState({});
 
   React.useEffect((): void => {
@@ -47,7 +55,8 @@ export default function SelectWindow(): React.ReactElement {
           onClick={(): void => {
             if (checkedId !== window.id) {
               setCheckedId(window.id);
-              Toast.loading('切换窗口成功');
+              Toast.succeed('切换窗口成功');
+              ipcRenderer.invoke('sendToMainWindow', 'switchWindow', window);
             }
           }}
           checked={checkedId === window.id}
