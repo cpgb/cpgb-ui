@@ -27,5 +27,6 @@ img {
 }
 
 .app-wrapper .content {
+  height: 100%;
   overflow-y: scroll;
 }

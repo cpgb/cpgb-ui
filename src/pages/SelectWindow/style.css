@@ -1,6 +1,7 @@
 .select-window {
   display: flex;
   flex-flow: wrap;
+  height: 100%;
   padding: 10px 5px;
 }
 

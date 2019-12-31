@@ -39,5 +39,25 @@ export function createWindow(
 }
 
 ipcMain.handle('createWindow', (_, args) => {
-  return createWindow(args);
+  const window = createWindow(args);
+  window.on('close', () => {
+    window.close();
+  });
+  return window;
+});
+
+const windowCache: {
+  [propName: string]: BrowserWindow;
+} = {};
+ipcMain.handle('openWindow', (_, args) => {
+  if (!windowCache[args.path]) {
+    windowCache[args.path] = createWindow(args);
+    windowCache[args.path].on('close', () => {
+      windowCache[args.path].hide();
+    });
+  } else {
+    windowCache[args.path].show();
+    windowCache[args.path].focus();
+  }
+  return windowCache[args.path];
 });

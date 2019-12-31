@@ -63,7 +63,7 @@ export default function Project(): React.ReactElement {
         <CurrentWindow
           current={checkedWindow}
           onClick={(): void => {
-            ipcRenderer.invoke('createWindow', {
+            ipcRenderer.invoke('openWindow', {
               width: 900,
               height: 400,
               center: true,

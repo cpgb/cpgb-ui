@@ -14,7 +14,7 @@ const App: React.FunctionComponent = (): React.ReactElement => {
         title="疯狂游戏盒子"
         onClose={(): void => {
           const window = remote.getCurrentWindow();
-          window.close();
+          window.emit('close');
         }}
       />
       <div className={styleCss.content}>

@@ -3,6 +3,7 @@ import WindowItem from './WindowItem';
 import StyleCss from './style.css';
 import Electron from 'electron';
 import Toast from '../../components/Toast';
+import Placeholder from '../../components/Placeholder';
 
 const { desktopCapturer, ipcRenderer } = window.require('electron');
 
@@ -46,6 +47,7 @@ export default function SelectWindow(): React.ReactElement {
   }, []);
   return (
     <div className={StyleCss.selectWindow}>
+      {windows.length === 0 && <Placeholder />}
       {windows.map(window => (
         <WindowItem
           key={window.id}
