@@ -16,6 +16,7 @@ const prodPath: string = format({
 
 interface CreateWindowOptions {
   path?: string;
+  onClose?: () => void;
 }
 
 export function createWindow(
@@ -35,14 +36,18 @@ export function createWindow(
   const url: string = electronIsDev ? devPath : prodPath;
   window.loadURL(url + (options.path || '/'));
   window.setMenu(null);
+  window.on(
+    'close',
+    options.onClose ||
+      ((): void => {
+        window.close();
+      })
+  );
   return window;
 }
 
 ipcMain.handle('createWindow', (_, args) => {
   const window = createWindow(args);
-  window.on('close', () => {
-    window.close();
-  });
   return window;
 });
 
@@ -51,10 +56,10 @@ const windowCache: {
 } = {};
 ipcMain.handle('openWindow', (_, args) => {
   if (!windowCache[args.path]) {
-    windowCache[args.path] = createWindow(args);
-    windowCache[args.path].on('close', () => {
+    args.onClose = (): void => {
       windowCache[args.path].hide();
-    });
+    };
+    windowCache[args.path] = createWindow(args);
   } else {
     windowCache[args.path].show();
     windowCache[args.path].focus();

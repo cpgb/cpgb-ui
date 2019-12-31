@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styleCss from './style.css';
+import { Arrow } from '../../components/Icons';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-export interface TitleBarProps {
+export interface TitleBarProps extends RouteComponentProps {
   title: string;
   onClose: () => void;
 }
@@ -23,8 +25,28 @@ const IconClose: React.FunctionComponent = () => (
 const TitleBar: React.FunctionComponent<TitleBarProps> = (
   props: TitleBarProps
 ): React.ReactElement => {
+  console.log(props.history);
   return (
     <header className={styleCss.titleBar}>
+      {props.history.length > 1 && (
+        <div className={styleCss.control}>
+          <Arrow
+            direction={'left'}
+            fill="#666"
+            onClick={(): void => {
+              props.history.goBack();
+            }}
+          />
+          <Arrow
+            direction={'right'}
+            fill="#666"
+            onClick={(): void => {
+              props.history.goForward();
+            }}
+          />
+        </div>
+      )}
+
       {props.title}
       <div className={styleCss.right}>
         <span
@@ -40,4 +62,4 @@ const TitleBar: React.FunctionComponent<TitleBarProps> = (
   );
 };
 
-export default TitleBar;
+export default withRouter(TitleBar);

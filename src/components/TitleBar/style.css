@@ -6,6 +6,22 @@
   -webkit-app-region: drag;
 }
 
+.titleBar .control {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.titleBar .control svg {
+  cursor: pointer;
+}
+
+.titleBar .control svg:hover {
+  fill: #000;
+}
+
 .right {
   position: absolute;
   top: 0;

@@ -6,6 +6,7 @@ import Cross from './Cross';
 import Checkmark from './Checkmark';
 import Loading from './Loading';
 import ProjectIcon from './ProjectIcon';
+import Arrow from './Arrow';
 
 export {
   SelectWindowIcon,
@@ -15,5 +16,6 @@ export {
   Checkmark,
   Cross,
   Loading,
-  ProjectIcon
+  ProjectIcon,
+  Arrow
 };
