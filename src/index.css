@@ -11,7 +11,8 @@ body,
 
 * {
   box-sizing: border-box;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif;
   border: 0;
   outline: 0;
 }
